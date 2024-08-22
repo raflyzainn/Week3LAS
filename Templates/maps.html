@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokasi Perusahaan</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        #map {
+            height: 100vh;
+            width: 100%;
+            position: relative; /* Ensure positioning context for the button */
+        }
+        .button-container {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            z-index: 1000; /* Ensure the button is above the map */
+        }
+        .back-button {
+            padding: 15px 25px; /* Make the button a bit bigger */
+            font-size: 1.2em; /* Increase font size */
+            color: #ffff; /* White text */
+            background-color: #007bff; /* Blue background */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .back-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <div id="map">
+        <div class="button-container">
+            <a href="/" class="back-button">Kembali ke Dashboard</a>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([-6.971386, 107.632456], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        fetch('/lokasi')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(location => {
+                    var lat = location.latitude;
+                    var lng = location.longitude;
+                    var name = location.name;
+                    var address = location.address;
+                    var image = location.image; // Get the image URL
+                    var popupContent = `<b>${name}</b><br>${address}<br><img src="${image}" alt="${name}" style="width:200px; height:auto;">`;
+
+                    L.marker([lat, lng]).addTo(map)
+                        .bindPopup(popupContent)
+                        .openPopup();
+                });
+            })
+            .catch(error => console.error('Error fetching lokasi:', error));
+    </script>
+</body>
+</html>
