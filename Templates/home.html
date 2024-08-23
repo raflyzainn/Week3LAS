@@ -4,13 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <title>Panduan Museum Bandung</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Alegreya', serif;
             background-color: #f7f3e3;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         header {
@@ -42,6 +48,8 @@
             text-decoration: none;
             font-weight: bold;
             padding: 5px 10px;
+            font-family: 'Alegreya', serif;
+            font-size: larger;
         }
 
         .nav-links a:hover {
@@ -57,33 +65,41 @@
             justify-items: center;
             max-width: 900px;
             margin: 0 auto;
+            flex: 1;
         }
 
         .card {
-            background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             width: 100%;
+            max-height: 250px;
+            background-color: transparent;
         }
 
         .card img {
             width: 40%;
-            height: auto;
+            height: 100%;
             border-top-left-radius: 10px;
             border-bottom-left-radius: 10px;
             object-fit: cover;
+            filter: brightness(70%);
         }
 
         .card-content {
             padding: 20px;
             width: 60%;
+            background-color: transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-sizing: border-box;
+            max-height: 100%;
         }
 
         .card-content h2 {
-            font-size: 20px;
+            font-size: 18px;
             margin: 0 0 10px;
             color: #6a7640;
         }
@@ -99,14 +115,45 @@
             background-color: #384a25;
             color: #fff;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 5px;
             font-weight: bold;
             text-align: center;
+            font-size: 14px;
+            width: fit-content;
+            margin-top: auto;
         }
 
         .card-content a:hover {
             background-color: #556034;
+        }
+
+        footer {
+            background-color: #BC6C25;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        footer .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        footer img {
+            height: px;
+            width: 100px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -117,9 +164,9 @@
             <img src="https://repository-images.githubusercontent.com/50575259/8fa6cbcd-6cb9-4bc7-a0ac-d04f4885d1e2" alt="Logo" />
         </div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="maps">Maps</a></li>
-            <li><a href="#">Informasi</a></li>
+            <li><a href="about">Informasi</a></li>
         </ul>
     </header>
 
@@ -147,10 +194,24 @@
             <div class="card-content">
                 <h2>Informasi</h2>
                 <p>Selamat datang di Panduan Museum Kota Bandung! Website ini dirancang khusus untuk membantu Anda menemukan dan mengeksplorasi berbagai museum menarik di Kota Bandung. Dengan peta interaktif yang kami sediakan, Anda dapat dengan mudah menemukan lokasi setiap museum, melihat informasi singkat mengenai koleksi yang ditampilkan, serta merencanakan kunjungan Anda. Jelajahi kekayaan budaya, sejarah, dan seni yang ditawarkan oleh museum-museum di Bandung, dan temukan pengalaman yang tak terlupakan di setiap sudut kota.</p>
-                <a href="#">Informasi</a>
+                <a href="about">Informasi</a>
             </div>
         </div>
     </div>
+
+    <footer>
+        <div class="footer-content">
+            <img src="https://network.rg.telkomuniversity.ac.id/wp-content/uploads/sites/4/2021/08/Logo-transparant-1024x576.png" alt="Logo Telkom University">
+            <p>
+                Nama Pembuat: Achmad Rafly Khatami Zain <br>
+                ID: 2449 <br>
+                Jurusan: Informatika <br>
+                Kampus: Telkom University <br>
+                Laboratorium MBC <br>
+                Divisi: GIS
+            </p>
+        </div>
+    </footer>
 </body>
 
 </html>

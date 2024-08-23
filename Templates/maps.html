@@ -13,19 +13,19 @@
         #map {
             height: 100vh;
             width: 100%;
-            position: relative; /* Ensure positioning context for the button */
+            position: relative; 
         }
         .button-container {
             position: absolute;
             bottom: 10px;
             right: 10px;
-            z-index: 1000; /* Ensure the button is above the map */
+            z-index: 1000; 
         }
         .back-button {
-            padding: 15px 25px; /* Make the button a bit bigger */
-            font-size: 1.2em; /* Increase font size */
-            color: #ffff; /* White text */
-            background-color: #007bff; /* Blue background */
+            padding: 15px 25px; 
+            font-size: 1.2em; 
+            color: #ffff; 
+            background-color: #007bff; 
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -33,7 +33,7 @@
             display: inline-block;
         }
         .back-button:hover {
-            background-color: #0056b3; /* Darker blue on hover */
+            background-color: #0056b3; 
         }
     </style>
 </head>
@@ -60,7 +60,7 @@
                     var lng = location.longitude;
                     var name = location.name;
                     var address = location.address;
-                    var image = location.image; // Get the image URL
+                    var image = location.image; 
                     var popupContent = `<b>${name}</b><br>${address}<br><img src="${image}" alt="${name}" style="width:200px; height:auto;">`;
 
                     L.marker([lat, lng]).addTo(map)
